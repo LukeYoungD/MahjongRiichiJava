@@ -25,6 +25,10 @@ public class Tile {
     //getters and setters
     public char getSuit() {return suit; }
     public int getRank() {return rank; }
+    public int getRankPrint() {
+        if (this.isRed) return 0;
+        else return rank; 
+    }
     public String getType() {return type; }
     public Boolean isDora() {return isDora; }
     public Boolean isSideways() {return isSideways; }
@@ -34,5 +38,17 @@ public class Tile {
     }
     public void setSideways(boolean bool) {
         this.isSideways = bool;
+    }
+
+    //String for Sorting
+    public String toStringSort() {
+        String tileString = "" + this.getSuit() + this.getRank();
+        return tileString;
+    }
+    //String Printing
+    @Override
+    public String toString() {
+        String tileString = "" + this.getSuit() + this.getRankPrint();
+        return tileString;
     }
 }

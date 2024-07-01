@@ -34,6 +34,7 @@ public class GameState {
         // Add 4 Winds (z) East=1, South=2, West=3, North=4
         // Add 3 Dragons (z) White=5, Green=6, Red=7
         // repeat * 4
+        // total is 108
         for (int i = 0; i < 4; i++) { //for 4 times
             char suit = 'p';
             for (int j = 0; j < 2; j++ ) { //for 2 suits
@@ -43,7 +44,7 @@ public class GameState {
                     if(k == 0 || k == 8) { //if number will be 1 or 9
                         wall.add(new Tile(suit, k + 1, "Terminal"));
                     } else if(i == 0 && k == 4){ //if this is the first 5 of this suit
-                        wall.add(new Tile(suit, k + 1, "Inside",true));
+                        wall.add(new Tile(suit, 5, "Inside",true));
                     } else { //add remaining number tiles
                         wall.add(new Tile(suit, k + 1, "Inside"));
                     }
@@ -55,21 +56,46 @@ public class GameState {
             wall.add(new Tile('m', 9, "Terminal"));
             //add Honors
             for (int j = 0; j < 7; j++) {
-                wall.add(new Tile('h', j + 1, "Honor"));
+                wall.add(new Tile('z', j + 1, "Honor"));
             }
         }
+        //print wall
+        System.out.println(wall.toString());
+        System.out.println(wall.size());
         //Shufffle the Wall
         Collections.shuffle(wall);
+
+        //print shuffled wall
+        System.out.println(wall.toString());
+
+        //dead wall is last 14 tiles
+        //dora indicator will be the 5th tile (9th item in the list, pos 8) for 3-player
+        //initialize dead wall
+        //loop 14 times, taking 1 tile from dead wall
+        for (int i = 0; i < 14; i++) {
+            deadWall.add(wall.remove(wall.size() - 1));
+        }
+        //print wall and deadwall
+        System.out.println(wall.toString());
+        System.out.println(wall.size());
+        System.out.println(deadWall.toString());
+        System.out.println(deadWall.size());
+
         //Initial Drawing Phase
         //Technically, this should be 3 sets of drawing 4 tiles at a time, 
         //with a 4th round of drawing just 1 tile
         for (Player player : players) {
+            //player.drawTileInitial(wall.remove(wall.size() - 1));
             for (int i = 0; i < 13; i++) {
                 player.drawTile(wall.remove(wall.size() - 1));
             }
         }
-        //indicate the dead wall? or just keep a count?
-        //the logic for the dead wall might be easier with a seperate wall, but it's unnecessary
+        //print player hands
+        for (Player player : players) {
+            System.out.println(player.getHand().toString());
+        }
+        
+        
     }
 
     public void proceedToNextTurn() {
@@ -102,5 +128,9 @@ public class GameState {
 
     public int getCurrentTurn() {
         return currentTurn;
+    }
+    public String printWall() {
+
+        return "lol";
     }
 }

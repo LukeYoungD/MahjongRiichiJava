@@ -6,9 +6,10 @@ Starting with 3-player. Using Mahjong Soul as my guide for Yaku, scoring, and ga
 Roadmap:
 --Create skeleton Classes for Main App, GameState, Player, Tile, and Melds.--v0.01
 
--Initialize Wall and Dead Wall
+--Initialize Wall and Dead Wall--v0.02
 
--Simulate Dealing
+--Simulate Dealing--v0.02b
+    -add sort to player hands
 
 -Add All possible winning Hands
 
