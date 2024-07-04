@@ -1,5 +1,5 @@
 public class Tile {
-    private char suit; //chi, pon, sou, honors
+    private char suit; //(m)an, (p)in, (s)ou, (z)honors
     private int rank;
     private String type; //inside, terminals, dragons, wind
     private boolean isDora;

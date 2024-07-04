@@ -36,3 +36,4 @@ Roadmap:
 Possible options:
 -Integrate GUI using a MEAN Front-End
 -Grab GameState from online game like Mahjong Soul
+-Make the game more modular to allow other card/tile games to be played using different settings. (Class Card Implements Tile...)

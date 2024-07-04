@@ -115,6 +115,22 @@ public class GameState {
          *  - Dealer did win & Dealer Player score >=40,000 & Dealer Player Score > other players
          * After South 3 end game
          */
+        boolean winnerExists = false;
+        int winnerIndex = -99;
+        //check zero, higher score player wins
+        for (Player player : players) {
+            if (player.getScore() < 0) {
+                winnerExists = true;
+            }
+        }
+        //find player with highest score
+        //might have to change this one to an updating placement instead to track things like ties.
+        int highScore = 0;
+        for (int i = 0; i < 3; i++) {
+            if (players.get(i).getScore() > highScore) {
+                winnerIndex = i;
+            }
+        }
     }
 
     public void calculateScores() {
