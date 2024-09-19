@@ -1,5 +1,5 @@
 # MahjongRiichiJava
-A Java project to simulate Mahjong Riichi with goal of adding AI to suggest best moves/keep track of possible wins and risky discards.
+A ongoing Java project to simulate Mahjong Riichi with goal of adding AI to suggest best moves/keep track of possible wins and risky discards.
 
 Starting with 3-player. Using Mahjong Soul as my guide for Yaku, scoring, and game flow
 
